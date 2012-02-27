@@ -20,7 +20,7 @@ import Adventure.GameBuild.*;
  * 
  * @author Jon Calhoun, jeffj
  * 
- * @version 20120208-01
+ * @version 20120207-01
  * 
  * @see Clock
  */
