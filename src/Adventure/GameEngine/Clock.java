@@ -11,7 +11,7 @@ import Adventure.Creatures.ClockWatcher;
  * 
  * @author Jon Calhoun, jeffj
  * 
- * @version 20120208-01
+ * @version 20120207-01
  */
 public interface Clock {                    // Subject interface
     
