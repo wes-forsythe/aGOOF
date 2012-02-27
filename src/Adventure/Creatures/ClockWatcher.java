@@ -8,9 +8,9 @@ package Adventure.Creatures;
  * ClockWater interface is the observer form the observer design pattern. ClockWaters
  * are able to subscribe to a clock and be notified of ticks of the clock.
  * 
- * @author Jon Calhoun
+ * @author Jon Calhoun, jeffj
  * 
- * @version 20120207-01, jeffj
+ * @version 20120207-01
  * 
  * @see Clock
  */
