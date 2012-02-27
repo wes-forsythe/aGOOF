@@ -10,7 +10,7 @@ package Adventure.Creatures;
  * 
  * @author Jon Calhoun
  * 
- * @version 20120208-01, jeffj
+ * @version 20120207-01, jeffj
  * 
  * @see Clock
  */
