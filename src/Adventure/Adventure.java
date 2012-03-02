@@ -1,6 +1,7 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * aGOOF - Adventure Game Object-Oriented Framework
+ * 
+ * package Adventure contains main and handles IO
  */
 package Adventure;
 
@@ -9,19 +10,23 @@ import Adventure.GameBuild.World;
 
 import Adventure.GameEngine.*;
 
-/**
+/** Adventure contains the main function for the framework.  In addition, 
+ * the class initializes all the IO streams for the game.
  *
- * @author jeffj
+ * @author Jeff Jenness
+ * @version 20120228-01
  * 
  * @TODO extend the streams to include an output T class for enabling transcripts
  */
 public class Adventure {
-
+    /** establishes the input stream for the game */
     public static final InputStream in = System.in;
+    /** establishes the output stream for the game */
     public static final PrintStream out = System.out;
     
-    /**
+    /** entry point for the game: prints the banner, sets up the IO, and starts play. 
      * @param args the command line arguments
+     * @throws IOException
      */
     public static void main(String[] args) throws IOException {
         
