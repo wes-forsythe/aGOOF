@@ -10,8 +10,9 @@ package Adventure.Things;
  */
 public class Consumable extends Item{
     
-    public Consumable (String name){
-        super (name);
+    public Consumable (String fullName, String ... aliases){
+        super (fullName);
+        addAliases(aliases);
     }
     
 }

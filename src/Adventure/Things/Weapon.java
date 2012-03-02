@@ -10,8 +10,15 @@ package Adventure.Things;
  */
 public class Weapon extends Item{
     
-    public Weapon(String name){
-        super(name);
+    /**
+     * 
+     * @param
+     */
+    public Weapon(String fullName, String ... aliases){
+        super(fullName);
+        addAliases(aliases);
     }
+    
+    // @todo
     
 }
