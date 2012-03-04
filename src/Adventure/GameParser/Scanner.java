@@ -6,6 +6,7 @@ package Adventure.GameParser;
 
 import java.io.*;
 import java.util.*;
+import static Adventure.GameParser.Word.PartsOfSpeech.*;
 /**
  *
  * @author jeffj
@@ -43,26 +44,23 @@ public class Scanner {
          * @TODO multi-word recognition, e.g., "pick up", "put down", should be greedy - FIX
          */
         Dictionary dict = Dictionary.INSTANCE;
-        String[] words;
-        Word def;
+        ArrayList<String> words;
+        Definition def;
         ArrayList<Token> tokens = new ArrayList<Token>();
         
         if (prompt != null)
             out.printf(prompt);
         buff = in.readLine();
         
-        // eliminate punctuation, normalize, and divide
-        words = buff.replace(",.!","").toLowerCase().split("\\s+");
+        words = new ArrayList(Arrays.asList(buff.split("\\s+")));
         
         // check all words and form dictionary entries (multi-words, e.g., "pick up")
-        for(int i=0; i<words.length; ++i) {
-            if ((def = dict.lookup(words[i])) != null)
-                tokens.add(new Token(words[i], def.get(), def.getClass().getSimpleName()));
-            else if (i+1<words.length && (def = dict.lookup(words[i], words[i+1])) != null) {
-                tokens.add(new Token(words[i]+" "+words[i+1], def.get(), def.getClass().getSimpleName()));
-                ++i;
-            } else
-                tokens.add(new Token(words[i], "", "UNKNOWN"));
+        for(int i=0; i<words.size(); ++i) {
+            if ((def = dict.lookup(words.get(i))) != null) {
+                tokens.add(new Token(words.get(i), def.word().get(), def.word().type()));
+            } else {
+                tokens.add(new Token(words.get(i), words.get(i), UNKNOWN));
+            }
         }
         
         return tokens;

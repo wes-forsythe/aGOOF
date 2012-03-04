@@ -4,12 +4,12 @@
  */
 package Adventure.Things;
 
-import Adventure.GameParser.Noun;
+import Adventure.GameObject.*;
 /**
  *
  * @author jeffj
  */
-public abstract class Thing extends Noun {
+public abstract class Thing extends GameObject {
     
     public Thing(String name) {
         super(name);

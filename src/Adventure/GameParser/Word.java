@@ -11,46 +11,35 @@ import java.util.ArrayList;
  * 
  * @todo Check logic to make sure words are all lowercase, make efficient
  */
-public abstract class Word {
-    private String archetype;
-    private ArrayList<String> aliases;
+public class Word {
+    public static enum PartsOfSpeech {
+        UNKNOWN, PARTIAL, NOUN, ARTICLE, ADJECTIVE, VERB, PREPOSITION, INTERJECTION
+    }
+
+    private String entry;
+    private PartsOfSpeech type;
+    private String word;
     
-    public Word(String word) {
-        this.archetype = word.toLowerCase();
-        this.aliases = new ArrayList<String>();
-        this.aliases.add(word);
+    public Word(String word, PartsOfSpeech type) {
+        this.entry = word.toLowerCase();
+        this.type = type;
+        this.word = word;
     }
     
     public String get() {
-        return this.archetype;
+        return this.word;
     }
     
-    public boolean matches(String word) {
-        boolean result = this.archetype.equals(word);
-        
-        for(int i=0; !result && i<this.aliases.size(); ++i)
-            if (aliases.get(i).equals(word))
-                result = true;
-            
-        return result;
+    public PartsOfSpeech type() {
+        return this.type;
     }
     
-    public ArrayList<String> aliases() {
-        return this.aliases;
-    }
-    
-    public void addAliases(String ... aliases) {
-        Dictionary dict = Dictionary.INSTANCE;
-        dict.addWord(this.archetype,this); // FIX THIS
-        for (String alias: aliases) {
-            alias = alias.toLowerCase();
-            this.aliases.add(alias);
-            dict.addWord(alias, this);
-        }
+    public String entry() {
+        return this.entry;
     }
     
     @Override
     public String toString() {
-        return archetype;
+        return this.type+"("+this.word+"("+this.entry+"))";
     }
 }

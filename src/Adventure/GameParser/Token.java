@@ -4,6 +4,7 @@
  */
 package Adventure.GameParser;
 
+import static Adventure.GameParser.Word.PartsOfSpeech;
 /**
  *
  * @author jeffj
@@ -11,9 +12,9 @@ package Adventure.GameParser;
 public class Token {
     private String lexeme;
     private String value;
-    private String type;
+    private PartsOfSpeech type;
     
-    public Token(String lexeme, String value, String type) {
+    public Token(String lexeme, String value, PartsOfSpeech type) {
         this.lexeme = lexeme;
         this.value = value;
         this.type = type;
@@ -27,7 +28,7 @@ public class Token {
         return this.value;
     }
     
-    public String type() {
+    public PartsOfSpeech type() {
         return this.type;
     }
     

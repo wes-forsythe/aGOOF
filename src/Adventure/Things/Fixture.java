@@ -12,7 +12,7 @@ public class Fixture extends Thing {
     
     public Fixture(String fullName, String ... aliases) {
         super(fullName);
-        addAliases(aliases);        
+        // addAliases(aliases);        
     }
     
 }

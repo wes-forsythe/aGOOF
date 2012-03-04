@@ -12,7 +12,7 @@ public class Consumable extends Item{
     
     public Consumable (String fullName, String ... aliases){
         super (fullName);
-        addAliases(aliases);
+        // addAliases(aliases);
     }
     
 }

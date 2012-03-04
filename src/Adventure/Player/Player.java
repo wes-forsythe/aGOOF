@@ -4,20 +4,20 @@
  */
 package Adventure.Player;
 
-import Adventure.GameParser.Noun;
+import Adventure.GameObject.*;
 /**
  *
  * @author jeffj
  */
-public final class Player extends Noun {
+public final class Player extends GameObject {
     
     public static final Player INSTANCE = new Player(); // eager singleton creation
     
     private String name;
     
     private Player() {
-        super("an", "adventurer");
-        this.setPronoun("him");
+        //super("an", "adventurer");
+        //this.setPronoun("him");
         this.setDescription("There is nothing distinct about him, just average looking.");
         reset(); // initialize
     }

@@ -4,17 +4,18 @@
  */
 package Adventure.GameParser;
 
+import static Adventure.GameParser.Word.PartsOfSpeech.*;
 /**
  *
  * @author jeffj
  */
 public class Article extends Word {
     public Article(String word) {
-        super(word);
+        super(word, ARTICLE);
     }
 
     @Override
     public String toString() {
-        return "ARTICLE("+super.toString()+")";
+        return "AOBJ("+super.toString()+")";
     }
 }

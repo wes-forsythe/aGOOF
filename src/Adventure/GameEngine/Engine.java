@@ -117,7 +117,7 @@ public enum Engine implements Clock {
         parser.setOutput(out);
         
         World.Build();
-        out.printf("Welcome to %s, %s!\n\n", world.name, world.adventurer.Name());
+        out.printf("Welcome to %s, %s!\n\n", world.name, world.adventurer.name());
         out.printf("Type \"help\" to get instructions.\n");
         do {
             action = parser.parse();    // get and parse user input

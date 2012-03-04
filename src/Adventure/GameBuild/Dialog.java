@@ -17,9 +17,10 @@ public class Dialog {
     public static Verb take = new Verb("take");
     
     public static void Build() {
-
-        quit.addAliases("exit");
-        take.addAliases("get", "pick up", "pickup", "steal");
+        Dictionary dict = Dictionary.INSTANCE;
+        
+        dict.addAliases(quit, "exit");
+        dict.addAliases(take, "get", "pick up", "pickup", "steal");
     
     }
 }

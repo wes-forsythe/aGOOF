@@ -8,7 +8,7 @@ package Adventure.Things;
  *
  * @author Price Hardin
  */
-public class Weapon extends Item{
+public class Weapon extends Item {
     
     /**
      * 
@@ -16,9 +16,9 @@ public class Weapon extends Item{
      */
     public Weapon(String fullName, String ... aliases){
         super(fullName);
-        addAliases(aliases);
+        // addAliases(aliases);
     }
     
-    // @todo
+    // @TODO
     
 }
