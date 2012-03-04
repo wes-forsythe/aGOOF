@@ -20,14 +20,15 @@ For ANY Word:
 A SIMPLE GRAMMAR
 	Start    = Sentence { ( "." | "THEN" | "AND" ) Sentence } [ "." ] ;
 	Sentence = [ Subject [ "," ] ] verb [ DirectObject [ preposition IndirectObject ] ] ;
+		 | interjection ;
 	Subject  = NounPhrase ;
 	DirectObject = NounPhrase ;
 	IndirectObject = NounPhrase ;
 	NounPhrase = [ article ] { adjective } noun ;
 
 	base words:
-	article = "THE" | "A" | "AN" | "ONE OF THE" | 
-	noun = "ME" | "IT" | "ALL"
+	article = "THE" | "A" | "AN" | "ONE OF" 
+	noun = "ME" | "IT" | "ALL" | "HIM" | "HER" | "THAT" 
 	verb = "LOOK" | "TAKE" | "DROP" | "EXAMINE" | "SEARCH" | "INVENTORY" | "WAIT" 
 	     | "OPEN" | "CLOSE" | "LOCK" | "UNLOCK" | "ASK" | "SAY" | "GIVE" | "MOVE" 
 	     | "AGAIN" | "ATTACK" | "EAT" | "DRINK" | "READ" | "GO"
