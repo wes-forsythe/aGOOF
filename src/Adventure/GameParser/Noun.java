@@ -4,6 +4,7 @@
  */
 package Adventure.GameParser;
 
+import static Adventure.GameParser.Word.PartsOfSpeech.*;
 /**
  *
  * @author jeffj
@@ -15,7 +16,7 @@ public class Noun extends Word {
     private String description;
     
     public Noun(String word) {
-        super(word);
+        super(word, NOUN);
     }
     
     public Noun(String article, String word) {
@@ -49,6 +50,6 @@ public class Noun extends Word {
 
     @Override
     public String toString() {
-        return "NOUN("+super.toString()+")";
+        return "NOBJ("+super.toString()+")";
     }
 }

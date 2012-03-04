@@ -31,6 +31,7 @@ public class Dialog {
      * @see Adventure.GameParser.Verb
      */
     public static void Build() {
+<<<<<<< HEAD
         /**
          * Be sure to allow the user to use multiple synonyms of the verb
          * because no two people think exactly alike
@@ -40,6 +41,12 @@ public class Dialog {
         /**
          * @see Adventure.GameParser.Word
          */
+=======
+        Dictionary dict = Dictionary.INSTANCE;
+        
+        dict.addAliases(quit, "exit");
+        dict.addAliases(take, "get", "pick up", "pickup", "steal");
+>>>>>>> upstream/master
     
     }
 }

@@ -8,24 +8,37 @@ import java.util.*;
 /**
  *
  * @author jeffj
+ * 
+ * @TODO ambiguity was chosen to be eliminated in this version, 
+ *       so each word can only be used for one part of speech,
+ *       add this into the next version of the dictionary/scanner
  */
 public class Definition {
-    private ArrayList<Word> definitions;
-    private ArrayList<String> compounds;  // compounds starting with the entry ... be greedy
-    private ArrayList<String> classtypes; // class types the word can be used with
+    private Word word;
+    private ArrayList<String> phrases; // phrases starting with the word
     
-    public Definition() {
-        definitions = new ArrayList<Word>();
-        compounds = new ArrayList<String>();
-        classtypes = new ArrayList<String>();
+    public Definition(Word word) {
+        this.word = word;
+        phrases = null;
     }
     
-    public void addWord(Word word) {
-        definitions.add(word);
-        classtypes.add(word.getClass().getSimpleName());
+    public Definition(Word word, String phrase) {
+        this.word = word;
+        phrases = new ArrayList<String>();
+        phrases.add(phrase);
     }
     
-    public void addCompound(String compound) {
-        compounds.add(compound);
+    public Word word() {
+        return this.word;
     }
-}
+    
+    public void addPhrase(String ... compounds) {
+        if (phrases == null) phrases = new ArrayList<String>();
+        phrases.addAll(Arrays.asList(compounds));
+    }
+    
+    @Override
+    public String toString() {
+        return "DEF("+word.toString()+"{"+phrases.toString()+"})";
+    }
+ }

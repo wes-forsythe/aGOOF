@@ -2,12 +2,12 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package Adventure.GameParser;
+package Adventure.GameObject;
 
 /**
  *
  * @author jeffj
  */
-public class Partial {
+public class ObjectMap {
     
 }

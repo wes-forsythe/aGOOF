@@ -4,12 +4,12 @@
  */
 package Adventure.Locations;
 
-import Adventure.GameParser.Noun;
+import Adventure.GameObject.*;
 /**
  *
  * @author jeffj
  */
-public abstract class Location extends Noun {
+public abstract class Location extends GameObject {
     /**
      * protected storage for name
      */    

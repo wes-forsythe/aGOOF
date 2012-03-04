@@ -4,17 +4,18 @@
  */
 package Adventure.GameParser;
 
+import static Adventure.GameParser.Word.PartsOfSpeech.*;
 /**
  *
  * @author jeffj
  */
 public class Verb extends Word {
     public Verb(String word) {
-        super(word);
+        super(word, VERB);
     }
 
     @Override
     public String toString() {
-        return "VERB("+super.toString()+")";
+        return "VOBJ("+super.toString()+")";
     }
 }
