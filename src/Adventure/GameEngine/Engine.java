@@ -123,7 +123,7 @@ public enum Engine implements Clock {
             action = parser.parse();        // get and parse user input
                                             // distrubute action and execute
             tick();                         // increment clock ... signal step 
-            World.view(Player.location());  // generate view
+            // World.view(Player.location());  // generate view
         } while (!action.Action().equals("quit"));
     }
 }

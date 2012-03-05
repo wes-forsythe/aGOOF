@@ -25,7 +25,7 @@ public enum Dictionary {
     public void addWord(String entry, Definition def) {
         // @TODO throw exception when an entry is already found in dictionary
         if (!entries.containsKey(entry)) {
-            System.out.printf("Adding word to dictionary: '%s'->'%s'\n", entry, def.word().get());
+            // System.out.printf("Adding word to dictionary: '%s'->'%s'\n", entry, def.word().get());
             entries.put(entry, def);
         }        
         if (entry.indexOf(" ") > 0)
@@ -38,7 +38,7 @@ public enum Dictionary {
             String entry = alias.toLowerCase();
             // @TODO throw exception when an entry is already found in dictionary
             if (!entries.containsKey(entry)) {
-                System.out.printf("Adding alias to dictionary: '%s'->'%s'\n", entry, word.get());
+                // System.out.printf("Adding alias to dictionary: '%s'->'%s'\n", entry, word.get());
                 entries.put(entry, new Definition(word));
             }
             if (entry.indexOf(" ") > 0)
@@ -53,10 +53,10 @@ public enum Dictionary {
             // one space between words, need to rebuild phrases to be sure.
             String partial = phrase.substring(0,i);
             if (!entries.containsKey(partial)) {
-                System.out.printf("Adding partial to dictionary: '%s'->'%s'\n", partial, phrase);
+                // System.out.printf("Adding partial to dictionary: '%s'->'%s'\n", partial, phrase);
                 entries.put(partial, new Definition(new Word(partial, PARTIAL), phrase));
             } else {
-                System.out.printf("Adding phrase to dictionary: '%s'->'%s'\n", partial, phrase);
+                // System.out.printf("Adding phrase to dictionary: '%s'->'%s'\n", partial, phrase);
                 entries.get(partial).addPhrase(phrase);
             }
         }        
