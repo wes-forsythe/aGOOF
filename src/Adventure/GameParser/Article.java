@@ -7,13 +7,20 @@ package Adventure.GameParser;
 import static Adventure.GameParser.Word.PartsOfSpeech.*;
 /**
  *
- * @author jeffj
+ * @author jeffj, kevinratton
  */
 public class Article extends Word {
+    /**
+     * gets private string word to set type article
+     * @param word string to set type
+     */
     public Article(String word) {
         super(word, ARTICLE);
     }
-
+    /**
+     * calls Word toString() method
+     * @return 
+     */
     @Override
     public String toString() {
         return "AOBJ("+super.toString()+")";
