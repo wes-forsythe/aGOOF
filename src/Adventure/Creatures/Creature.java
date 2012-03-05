@@ -14,14 +14,11 @@ import Adventure.Locations.*;
  */
 public abstract class Creature extends GameObject implements ClockWatcher {
 
-    private String name;
-    
     protected MoveAction movement;
     protected Location location;
     
     public Creature(String name) {
-        super(name.toLowerCase());
-        this.name = name;
+        super(name);
     }
     
     @Override

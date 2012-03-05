@@ -13,6 +13,5 @@ public abstract class Thing extends GameObject {
     
     public Thing(String name) {
         super(name);
-    }
-    
+    } 
 }

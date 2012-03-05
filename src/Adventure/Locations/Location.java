@@ -10,17 +10,12 @@ import Adventure.GameObject.*;
  * @author jeffj
  */
 public abstract class Location extends GameObject {
-    /**
-     * protected storage for name
-     */    
-    protected String name;
      /**
      * constructor places name into protected variable.
      * @param name
      */   
     public Location(String name) {
-        super(name.toLowerCase());
-        this.name = name;
+        super(name);
     }   
      /**
      * access method to protected string variable name

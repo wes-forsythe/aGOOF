@@ -37,6 +37,10 @@ public class Definition {
         phrases.addAll(Arrays.asList(compounds));
     }
     
+    public ArrayList<String> phrases() {
+        return phrases;
+    }
+    
     @Override
     public String toString() {
         return "DEF("+word.toString()+"{"+phrases.toString()+"})";

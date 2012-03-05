@@ -14,7 +14,7 @@ import Adventure.GameEngine.*;
  * the class initializes all the IO streams for the game.
  *
  * @author Jeff Jenness
- * @version 20120228-01
+ * @version 20120304-01
  * 
  * @TODO extend the streams to include an output T class for enabling transcripts
  */

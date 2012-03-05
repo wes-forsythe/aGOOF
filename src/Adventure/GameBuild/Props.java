@@ -14,6 +14,7 @@ public class Props {
     
     public static Weapon bloodyAxe = new Weapon ("Bloody Axe", "Axe", "Ax");
     public static Weapon knife = new Weapon ("knife");
+    public static Fixture radio = new Fixture("radio");
     
     public static void Build() {
 

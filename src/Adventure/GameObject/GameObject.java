@@ -11,11 +11,14 @@ import Adventure.GameParser.*;
  */
 public abstract class GameObject implements Label {
   
-    private String name;
-    private String description;
-    private Noun word;
+    protected String name;
+    protected String description;
+    protected Noun word;
     
     public GameObject(String label) {
+        Dictionary dict = Dictionary.INSTANCE;
+        word = new Noun(label);
+        dict.Register(word);
         this.name = label;
     }
     

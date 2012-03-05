@@ -19,8 +19,8 @@ public class Dialog {
     public static void Build() {
         Dictionary dict = Dictionary.INSTANCE;
         
-        dict.addAliases(quit, "exit");
-        dict.addAliases(take, "get", "pick up", "pickup", "steal");
+        dict.Register(quit, "exit", "bye");
+        dict.Register(take, "get", "pick up", "pickup");
     
     }
 }

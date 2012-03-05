@@ -11,8 +11,8 @@ import static Adventure.GameParser.Word.PartsOfSpeech.*;
  */
 public class Noun extends Word {
     
-    private String pronoun;
-    private String article;
+    private String pronoun = "it";
+    private String article = "the";
     private String description;
     
     public Noun(String word) {
