@@ -1,17 +1,18 @@
 /*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
+ * aGOOF - Adventure Game Object-Oriented Framework
+ * 
+ * package Locations contains locations of game objects
  */
 package Adventure.Locations;
 
 import Adventure.GameObject.*;
-/**
+/**Location contains the name of a particular location.
  *
- * @author jeffj
+ * @author Keith Smith, jeffj
  */
 public abstract class Location extends GameObject {
      /**
-     * constructor places name into protected variable.
+     * Location places name into protected variable.
      * @param name
      */   
     public Location(String name) {
@@ -20,6 +21,7 @@ public abstract class Location extends GameObject {
      /**
      * access method to protected string variable name
      * @return 
+     * @see GameObject
      */   
     @Override
     public String toString() {
