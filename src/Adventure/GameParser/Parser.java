@@ -40,9 +40,9 @@ public class Parser {
         scanner.setOutput(out);
         
         words = scanner.scan();
-        // for (int i=0; i<words.size(); ++i) 
-            // System.out.printf("lexeme->%s, value->%s, token->%s\n", 
-                // words.get(i).lexeme(), words.get(i).value(), words.get(i).type());
+        for (int i=0; i<words.size(); ++i) 
+            System.out.printf("lexeme->%s, value->%s, token->%s\n", 
+                words.get(i).lexeme(), words.get(i).value(), words.get(i).type());
         parse.setAction(words.get(0).value());
         
         return parse;

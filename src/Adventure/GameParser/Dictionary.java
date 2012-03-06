@@ -24,11 +24,15 @@ public enum Dictionary {
     
     public void addWord(String entry, Definition def) {
         // @TODO throw exception when an entry is already found in dictionary
-        if (!entries.containsKey(entry)) {
-            // System.out.printf("Adding word to dictionary: '%s'->'%s'\n", entry, def.word().get());
+        if (!entries.containsKey(entry)) { // adding the entry the first time
+            System.out.printf("Adding word to dictionary: '%s'->'%s'\n", entry, def.word().get());
             entries.put(entry, def);
-        }        
-        if (entry.indexOf(" ") > 0)
+        } else if (entries.get(entry).word().type() == PARTIAL) { // if only PARTIAL before, then add a legitimate word the first time we see it
+            System.out.printf("Adding word to dictionary: '%s'->'%s'\n", entry, def.word().get());
+            entries.get(entry).resetWord(def.word());
+        }
+
+        if (entry.indexOf(" ") > 0) // for any phrase, add PARTIALs
             this.addPhrase(entry);
     }
     
@@ -36,11 +40,8 @@ public enum Dictionary {
         int i;
         for (String alias : aliases) {
             String entry = alias.toLowerCase();
-            // @TODO throw exception when an entry is already found in dictionary
-            if (!entries.containsKey(entry)) {
-                // System.out.printf("Adding alias to dictionary: '%s'->'%s'\n", entry, word.get());
-                entries.put(entry, new Definition(word));
-            }
+            this.addWord(entry, new Definition(word));
+
             if (entry.indexOf(" ") > 0)
                 this.addPhrase(entry);
         }
@@ -53,10 +54,10 @@ public enum Dictionary {
             // one space between words, need to rebuild phrases to be sure.
             String partial = phrase.substring(0,i);
             if (!entries.containsKey(partial)) {
-                // System.out.printf("Adding partial to dictionary: '%s'->'%s'\n", partial, phrase);
+                System.out.printf("Adding partial to dictionary: '%s'->'%s'\n", partial, phrase);
                 entries.put(partial, new Definition(new Word(partial, PARTIAL), phrase));
             } else {
-                // System.out.printf("Adding phrase to dictionary: '%s'->'%s'\n", partial, phrase);
+                System.out.printf("Adding phrase to dictionary: '%s'->'%s'\n", partial, phrase);
                 entries.get(partial).addPhrase(phrase);
             }
         }        

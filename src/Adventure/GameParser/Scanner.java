@@ -47,6 +47,7 @@ public class Scanner {
         Dictionary dict = Dictionary.INSTANCE;
         ArrayList<String> words;
         Definition def;
+        Token tok;
         ArrayList<Token> tokens = new ArrayList<Token>();
         
         if (prompt != null)
@@ -57,13 +58,16 @@ public class Scanner {
         
         // check all words and form dictionary entries (multi-words, e.g., "pick up")
         for(int i=0; i<words.size(); ++i) {
-            // System.out.printf("Processing word: '%s'\n", words.get(i));
+            System.out.printf("Processing word: '%s'\n", words.get(i));
+            tok = new Token(words.get(i), words.get(i), UNKNOWN);
             if ((def = dict.lookup(words.get(i))) != null) {
-                if (def.word().type() == PARTIAL) {
+                if (def.word().type() != PARTIAL)
+                    tok = new Token(words.get(i), def.word().get(), def.word().type());
+                if (def.phrases() != null) {
                     // match a phrase on the buffer - GREEDY (which is good), BRUTISH and WASTEFUL!
                     // @TODO Clean this terrible thing up!  maybe redesign is necessary
                     int n = 0; // number of words in longest match
-                    String match = null; // longest matching phrase
+                    String match = def.word().get(); // default to entry but grab longest matching phrase
                     StringBuffer phrase = new StringBuffer(words.get(i));
                     int j;
                     for (j=1; i+j < words.size(); ++j) { // index to next work to grab from buffer
@@ -71,22 +75,18 @@ public class Scanner {
                         if (def.phrases().contains(phrase.toString().toLowerCase())) {
                             n = j;
                             match = phrase.toString();
-                            // System.out.printf("Found match: %d words, '%s' phrase\n", n, match);
+                            System.out.printf("Found match: %d words, '%s' phrase\n", n, match);
                         }
                     }
-                    if (match != null) {
+                    if (n != 0) {
                         def = dict.lookup(match.toLowerCase());
-                        tokens.add(new Token(match, def.word().get(), def.word().type()));
+                        tok = new Token(match, def.word().get(), def.word().type());
                         i += n;
-                        // System.out.printf("Next word in buffer %d: '%s'\n", i, words.get(i));
-                    } else
-                        tokens.add(new Token(words.get(i), words.get(i), UNKNOWN));
-                } else {
-                    tokens.add(new Token(words.get(i), def.word().get(), def.word().type()));
+                        System.out.printf("Next word in buffer %d: '%s'\n", i, words.get(i));
+                    }
                 }
-            } else {
-                tokens.add(new Token(words.get(i), words.get(i), UNKNOWN));
             }
+            tokens.add(tok);
         }
         
         return tokens;

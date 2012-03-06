@@ -33,7 +33,7 @@ public class Word {
     public PartsOfSpeech type() {
         return this.type;
     }
-    
+
     public String entry() {
         return this.entry;
     }

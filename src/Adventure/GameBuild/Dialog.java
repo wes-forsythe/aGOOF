@@ -27,6 +27,7 @@ public class Dialog {
      */
     public static Verb quit = new Verb("quit");
     public static Verb take = new Verb("take");
+    public static Verb pluck = new Verb("pluck");
     /**
      * @see Adventure.GameParser.Verb
      */
@@ -36,8 +37,9 @@ public class Dialog {
          * Be sure to allow the user to use multiple synonyms of the verb
          * because no two people think exactly alike
          */
-        dict.Register(quit, "exit", "bye");
+        dict.Register(quit, "q", "exit", "bye");
         dict.Register(take, "get", "pick up", "pickup");
+        dict.Register(pluck, "pick", "pick down");
         /**
          * @see Adventure.GameParser.Word
          */
