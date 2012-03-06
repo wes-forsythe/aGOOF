@@ -8,20 +8,30 @@ import java.util.*;
 import static Adventure.GameParser.Word.PartsOfSpeech.*;
 /**
  *
- * @author Jeff Jenness 
+ * @author Jeff Jenness, kevinratton
  */
 public enum Dictionary {
     INSTANCE;
     
     private HashMap<String,Definition> entries;
-    
+    /**
+     * make new HashMap called entries
+     */
     private Dictionary() {
         entries = new HashMap<String,Definition>();
     }
+    /**
+     * add word to dictionary with param word
+     * @param word word to be added
+     */
     public void addWord(Word word) {
         this.addWord(word.entry(), new Definition(word));
     }
-    
+    /**
+     * takes string and definition parameters to add to dictionary
+     * @param entry string to add to dictionary
+     * @param def definition of entry
+     */
     public void addWord(String entry, Definition def) {
         // @TODO throw exception when an entry is already found in dictionary
         if (!entries.containsKey(entry)) { // adding the entry the first time
@@ -35,7 +45,12 @@ public enum Dictionary {
         if (entry.indexOf(" ") > 0) // for any phrase, add PARTIALs
             this.addPhrase(entry);
     }
-    
+    /**
+     * takes Word and String of aliases to have an entry and its possible
+     * aliases
+     * @param word word to be added
+     * @param aliases possible other names used
+     */
     public void addAliases(Word word, String ... aliases) {
         int i;
         for (String alias : aliases) {
@@ -46,7 +61,10 @@ public enum Dictionary {
                 this.addPhrase(entry);
         }
     }
-    
+    /**
+     * adds phrases to dictionary with string phrase param
+     * @param phrase 
+     */
     public void addPhrase(String phrase) {
         int i;
         if ((i=phrase.indexOf(" ")) > 0) {
@@ -62,12 +80,20 @@ public enum Dictionary {
             }
         }        
     }
-    
+    /**
+     * takes word and aliases to add to dictionary
+     * @param word word to add
+     * @param aliases other names available
+     */
     public void Register(Word word, String ... aliases) {
         this.addWord(word);
         this.addAliases(word, aliases);
     }
-
+    /**
+     * get definition of a word
+     * @param word word for lookup
+     * @return 
+     */
     public Definition lookup(String word) {
         return entries.get(word.toLowerCase());
     }
