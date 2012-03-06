@@ -56,10 +56,7 @@ public enum Dictionary {
         for (String alias : aliases) {
             String entry = alias.toLowerCase();
             this.addWord(entry, new Definition(word));
-
-            if (entry.indexOf(" ") > 0)
-                this.addPhrase(entry);
-        }
+       }
     }
     /**
      * adds phrases to dictionary with string phrase param
