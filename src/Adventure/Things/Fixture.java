@@ -10,8 +10,9 @@ package Adventure.Things;
  */
 public class Fixture extends Thing {
     
-    public Fixture(String name) {
-        super(name);
+    public Fixture(String fullName, String ... aliases) {
+        super(fullName);
+        // addAliases(aliases);        
     }
     
 }

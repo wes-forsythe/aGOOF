@@ -6,9 +6,11 @@ package Adventure.GameParser;
 
 import java.io.*;
 import java.util.*;
-/**
+import static Adventure.GameParser.Word.PartsOfSpeech.*;
+/** The Scanner class translates the character input stream, 'in' into 'Tokens'.
+ * The Scanner also handles binding phrases together for multi-word verbs and nouns.
  *
- * @author jeffj
+ * @author Jeff Jenness
  */
 public class Scanner {
     private PrintStream out;
@@ -43,26 +45,48 @@ public class Scanner {
          * @TODO multi-word recognition, e.g., "pick up", "put down", should be greedy - FIX
          */
         Dictionary dict = Dictionary.INSTANCE;
-        String[] words;
-        Word def;
+        ArrayList<String> words;
+        Definition def;
         ArrayList<Token> tokens = new ArrayList<Token>();
         
         if (prompt != null)
             out.printf(prompt);
         buff = in.readLine();
         
-        // eliminate punctuation, normalize, and divide
-        words = buff.replace(",.!","").toLowerCase().split("\\s+");
+        words = new ArrayList(Arrays.asList(buff.split("\\s+")));
         
         // check all words and form dictionary entries (multi-words, e.g., "pick up")
-        for(int i=0; i<words.length; ++i) {
-            if ((def = dict.lookup(words[i])) != null)
-                tokens.add(new Token(words[i], def.get(), def.getClass().getSimpleName()));
-            else if (i+1<words.length && (def = dict.lookup(words[i], words[i+1])) != null) {
-                tokens.add(new Token(words[i]+" "+words[i+1], def.get(), def.getClass().getSimpleName()));
-                ++i;
-            } else
-                tokens.add(new Token(words[i], "", "UNKNOWN"));
+        for(int i=0; i<words.size(); ++i) {
+            // System.out.printf("Processing word: '%s'\n", words.get(i));
+            if ((def = dict.lookup(words.get(i))) != null) {
+                if (def.word().type() == PARTIAL) {
+                    // match a phrase on the buffer - GREEDY (which is good), BRUTISH and WASTEFUL!
+                    // @TODO Clean this terrible thing up!  maybe redesign is necessary
+                    int n = 0; // number of words in longest match
+                    String match = null; // longest matching phrase
+                    StringBuffer phrase = new StringBuffer(words.get(i));
+                    int j;
+                    for (j=1; i+j < words.size(); ++j) { // index to next work to grab from buffer
+                        phrase.append(" ").append(words.get(i+j));
+                        if (def.phrases().contains(phrase.toString().toLowerCase())) {
+                            n = j;
+                            match = phrase.toString();
+                            // System.out.printf("Found match: %d words, '%s' phrase\n", n, match);
+                        }
+                    }
+                    if (match != null) {
+                        def = dict.lookup(match.toLowerCase());
+                        tokens.add(new Token(match, def.word().get(), def.word().type()));
+                        i += n;
+                        // System.out.printf("Next word in buffer %d: '%s'\n", i, words.get(i));
+                    } else
+                        tokens.add(new Token(words.get(i), words.get(i), UNKNOWN));
+                } else {
+                    tokens.add(new Token(words.get(i), def.word().get(), def.word().type()));
+                }
+            } else {
+                tokens.add(new Token(words.get(i), words.get(i), UNKNOWN));
+            }
         }
         
         return tokens;

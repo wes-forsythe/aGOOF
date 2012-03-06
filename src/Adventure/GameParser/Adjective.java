@@ -4,17 +4,18 @@
  */
 package Adventure.GameParser;
 
+import static Adventure.GameParser.Word.PartsOfSpeech.*;
 /**
  *
  * @author jeffj
  */
 public class Adjective extends Word {
     public Adjective(String word) {
-        super(word);
+        super(word, ADJECTIVE);
     }
 
     @Override
     public String toString() {
-        return "ADJECTIVE("+super.toString()+")";
+        return "ADOBJ("+super.toString()+")";
     }    
 }

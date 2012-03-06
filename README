@@ -1,0 +1,16 @@
+aGOOF - adventure Game Object-Oriented Framework
+
+aGOOF is a Java framework for building Interactive Fiction games.  The framework
+composed of several packages:
+        Adventure       : the main package containing only the game entry point.
+            GameObject  : the base object for all objects in the framework.
+            GameParser  : the scanner/parser for translating input into actions.
+            GameEngine  : the game engine that runs all components of the game.
+            GameBuild   : the game objects for the specific game.
+
+In addition, more specific objects are found in the packages for constructing 
+the different parts of the game:
+            Player      : the objects for player state and interaction.
+            Creatures   : the objects for non-player characters in the game.
+            Locations   : the objects for locations and map building.
+            Things      : the objects for different props in the game.

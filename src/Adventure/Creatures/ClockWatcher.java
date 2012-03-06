@@ -5,10 +5,23 @@
 package Adventure.Creatures;
 
 /**
- * Observer Design Pattern
+ * ClockWater interface is the observer form the observer design pattern. ClockWatchers
+ * are able to subscribe to a clock and be notified when that clock ticks.
  * 
- * @author jeffj
+ * @author Jon Calhoun, jeffj
+ * 
+ * @version 20120207-01
+ * 
+ * @see Clock
  */
-public interface ClockWatcher {             // Observer interface
-    void tock();                            // update()
+public interface ClockWatcher {
+    
+    /**
+     * Outline for the method to update the ClockWatcher for the current tick of
+     * the clock that the ClockWatcher is currently subscribed to.
+     * 
+     * 
+     * @see Clock
+     */
+    public void tock();                     
 }
