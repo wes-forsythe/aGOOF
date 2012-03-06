@@ -11,40 +11,19 @@ import java.util.ArrayList;
  * 
  * @todo Check logic to make sure words are all lowercase, make efficient
  */
+public class Word {
+    public static enum PartsOfSpeech {
+        UNKNOWN, PARTIAL, NOUN, ARTICLE, ADJECTIVE, VERB, PREPOSITION, INTERJECTION
+    }
 
-/**
- * 
- * @author dustin.sharp
- * 
- * This Java file contains the abstract class of the other word type files in
- * the program.  The file has all the methods and variables that are in
- * common with the word type files.  Word type files include Noun.java,
- * Preposition.java, Article.java, and so on.  The particular word passed
- * to Word.java from other word type files is analyzed and compared to
- * words contained in the Dictionary.java word list to determine the action
- * tied to a given word.
- * 
- */
-
-public abstract class Word {
-    private String archetype;
-    private ArrayList<String> aliases;
+    private String entry;
+    private PartsOfSpeech type;
+    private String word;
     
-    /**
-     * Sets up an instance of the <code> Word </code> class
-     * and initializes the archetype variable to be the lowercase version
-     * of the word typed by the user. An <code> aliases </code> variable is
-     * set up so that alternate words with the same meaning as the 
-     * <code> word </code> parameter can be added to the list of aliases
-     * for this word.
-     * 
-     * @param word a String containing the word typed by user
-     */
-    
-    public Word(String word) {
-        this.archetype = word.toLowerCase();
-        this.aliases = new ArrayList<String>();
-        this.aliases.add(word);
+    public Word(String word, PartsOfSpeech type) {
+        this.entry = word.toLowerCase();
+        this.type = type;
+        this.word = word;
     }
     
      /**
@@ -56,7 +35,7 @@ public abstract class Word {
      */
     
     public String get() {
-        return this.archetype;
+        return this.word;
     }
     
     /**
@@ -70,46 +49,12 @@ public abstract class Word {
      * matches any in the Dictionary.java file
      */
     
-    public boolean matches(String word) {
-        boolean result = this.archetype.equals(word);
-        
-        for(int i=0; !result && i<this.aliases.size(); ++i)
-            if (aliases.get(i).equals(word))
-                result = true;
-            
-        return result;
+    public PartsOfSpeech type() {
+        return this.type;
     }
     
-    /**
-     * Simple "get" function that retrieves a list of aliases when called
-     * 
-     * @return a list of aliases for a given word
-     */
-    
-    public ArrayList<String> aliases() {
-        return this.aliases;
-    }
-    
-    /**
-     * Adds any <code> aliases </code> a word may have. For
-     * example, if there is the given word "knife", the alias "blade" can be
-     * added to the alias list so that the user can use these two words
-     * interchangeably.
-     * 
-     * @param aliases <code> String </code> containing an alternate word
-     * with same meaning as a particular given word
-     * 
-     * @return a boolean that determines if the alias has been added correctly
-     */
-    
-    public void addAliases(String ... aliases) {
-        Dictionary dict = Dictionary.INSTANCE;
-        dict.addWord(this.archetype,this); // FIX THIS
-        for (String alias: aliases) {
-            alias = alias.toLowerCase();
-            this.aliases.add(alias);
-            dict.addWord(alias, this);
-        }
+    public String entry() {
+        return this.entry;
     }
     
     /**
@@ -123,6 +68,6 @@ public abstract class Word {
     
     @Override
     public String toString() {
-        return archetype;
+        return this.type+"("+this.word+"("+this.entry+"))";
     }
 }

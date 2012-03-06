@@ -7,7 +7,7 @@ package Adventure.GameEngine;
 import Adventure.Creatures.ClockWatcher;
 /**
  * Clock interface uses the Observer Design Pattern objects (subscribers)
- * can subscribe to the clock to be notified of each clock tick.
+ * can subscribe to the clock. These subscribers will be notified of each subsequent clock tick.
  * 
  * @author Jon Calhoun, jeffj
  * 
@@ -34,7 +34,7 @@ public interface Clock {                    // Subject interface
      * Outline for the method to remove a currently subscribed ClockWatcher from 
      * being notified of ticks of the clock.
      * 
-     * @param w ClockWatcher that should not observe the clock at each tick.
+     * @param w ClockWatcher that should no longer observe the clock at each tick.
      * 
      * @see ClockWatcher
      */

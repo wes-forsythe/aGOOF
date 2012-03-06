@@ -4,7 +4,7 @@
  */
 package Adventure.Creatures;
 
-import Adventure.GameParser.Noun;
+import Adventure.GameObject.*;
 import Adventure.Locations.*;
 /**
  *
@@ -12,16 +12,13 @@ import Adventure.Locations.*;
  * 
  * @TODO move Noun from parent to composite part, implement Label interface
  */
-public abstract class Creature extends Noun implements ClockWatcher {
+public abstract class Creature extends GameObject implements ClockWatcher {
 
-    private String name;
-    
     protected MoveAction movement;
     protected Location location;
     
     public Creature(String name) {
-        super(name.toLowerCase());
-        this.name = name;
+        super(name);
     }
     
     @Override

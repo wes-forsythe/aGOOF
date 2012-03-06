@@ -1,0 +1,39 @@
+Some interesting dialog that should be understandable:
+
+    1. pick up the pick axe
+        here we have a compound verb "pick up" and compound noun "pick axe".
+        the dictionary must be able to be used based on the work "pick" which
+        actually could be defined as a verb also but have a different meaning
+        entirely.  other variations of this input could be:
+            pick up pick
+            grab the pick
+            take the axe
+            get ax
+        many variations should be possible, but the parser should translate all
+        the variations to the exact same canonical action.
+    
+    2. 
+
+For ANY Word:
+    1. multiple definitions are allowed
+
+A SIMPLE GRAMMAR
+	Start    = Sentence { ( "." | "THEN" | "AND" ) Sentence } [ "." ] ;
+	Sentence = [ Subject [ "," ] ] verb [ DirectObject [ preposition IndirectObject ] ] ;
+		 | interjection ;
+	Subject  = NounPhrase ;
+	DirectObject = NounPhrase ;
+	IndirectObject = NounPhrase ;
+	NounPhrase = [ article ] { adjective } noun ;
+
+	base words:
+	article = "THE" | "A" | "AN" | "ONE OF" 
+	noun = "ME" | "IT" | "ALL" | "HIM" | "HER" | "THAT" 
+	verb = "LOOK" | "TAKE" | "DROP" | "EXAMINE" | "SEARCH" | "INVENTORY" | "WAIT" 
+	     | "OPEN" | "CLOSE" | "LOCK" | "UNLOCK" | "ASK" | "SAY" | "GIVE" | "MOVE" 
+	     | "AGAIN" | "ATTACK" | "EAT" | "DRINK" | "READ" | "GO"
+	special verbs: QUIT, RESTART, SAVE, RESTORE, HELP, VERBOSE, BRIEF
+	verb abbreviations: L (LOOK), X (EXAMINE), I (INVENTORY), Z (WAIT), G (AGAIN), Q (QUIT)
+	verb directions: N (NORTH), S (SOUTH), E, W, NE, SE, SW, NW, U (UP), D (DOWN), IN, OUT
+			(short for: GO <direction>)
+	preposition = "TO" | "WITH"

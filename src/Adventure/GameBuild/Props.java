@@ -12,11 +12,13 @@ import Adventure.Things.*;
  */
 public class Props {
     
-    public static Item knife = new Item("knife");
+    public static Weapon bloodyAxe = new Weapon ("Bloody Axe", "Axe", "Ax");
+    public static Weapon knife = new Weapon ("knife");
+    public static Fixture radio = new Fixture("radio");
     
     public static void Build() {
 
-        knife.addAliases("blade", "dagger");
+        //knife.addAliases("blade", "dagger");
     
     }
 }
