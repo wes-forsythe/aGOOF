@@ -6,9 +6,13 @@ package Adventure.GameParser;
 
 import static Adventure.GameParser.Word.PartsOfSpeech.*;
 /**
- *
+ * Preposition is a subclass of Word that deals with prepositions
+ * when it comes to the parser
+ * 
  * @author jeffj
  * @author dustin.sharp
+ * 
+ * @version 20120503-01
  */
 public class Preposition extends Word {
     
