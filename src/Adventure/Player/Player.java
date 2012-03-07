@@ -10,8 +10,20 @@ import Adventure.GameObject.*;
  * @author jeffj
  */
 public final class Player extends GameObject {
+    /**
+ * Player class creates a Player object which extends from GameObject.
+ * 
+ * @author Tara Banks
+ * @version 20120210-01 
+ * @throws nothing
+ */
+
     
     public static final Player INSTANCE = new Player(); // eager singleton creation
+    /**
+     * This declaration creates a new instance of a character/ player.
+     */
+
     
     private Player() {
         super("Adventurer");
