@@ -10,6 +10,14 @@ package Adventure.GameEngine;
  *
  * @author Jeff Jenness
  */
+ /**
+ * Makes INSTANCE, which is the game engine, a constant
+ * 
+ * @author Tara Banks
+ * @version 20120210-01 
+ * @throws nothing
+ */
+
 public enum Master {
     INSTANCE;
     
