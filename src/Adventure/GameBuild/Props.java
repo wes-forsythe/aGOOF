@@ -19,8 +19,8 @@ import Adventure.Things.*;
  */
 public class Props {
     
-    /** A bloody axe weapon */
-    public static Weapon bloodyAxe = new Weapon ("Bloody Axe", "Axe", "Ax");
+    /** A bloody axe weapon, aliases removed for now */
+    public static Weapon bloodyAxe = new Weapon ("Bloody Axe"/*, "Axe", "Ax"*/);
     /** A knife weapon */
     public static Weapon knife = new Weapon ("knife");
     /** A radio fixture */
