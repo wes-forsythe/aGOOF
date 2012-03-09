@@ -11,8 +11,13 @@ import static Adventure.GameParser.Word.PartsOfSpeech.*;
  * The Scanner also handles binding phrases together for multi-word verbs and nouns.
  *
  * @author Jeff Jenness
+ * @author dereke
+ * @version ?
  */
+
+/** @see scan() */
 public class Scanner {
+    
     private PrintStream out;
     private BufferedReader in;
     private String prompt = "> ";
@@ -23,14 +28,30 @@ public class Scanner {
         this.in  = new BufferedReader(new InputStreamReader(System.in));
     }
     
+    /** Changes the OutputStream. 
+     * 
+     * 
+     * @param out OutputStream that should be the new print stream
+     * 
+     */
     public void setOutput(OutputStream out) {
         this.out = new PrintStream(out);
     }
     
+    /** Puts the InputStream in a Buffered Reader
+     * 
+     * 
+     * @param in InputStream that should be the new in stream for the scanner
+     * 
+     */
     public void setInput(InputStream in) {
         this.in = new BufferedReader(new InputStreamReader(in));
     }
     
+    /** Changes the prompt icon so the prompt doesn't look like a blank line.
+     * 
+     * @param prompt A unique character set at the beginning of the line,
+     */
     public void setPrompt(String prompt) {
         this.prompt = prompt;
     }
@@ -39,6 +60,18 @@ public class Scanner {
         return buff.toString();
     }
     
+     /** 
+     * Scan the User Input line by line. Take out symbols and make all lower case
+     * Create tokens from the input and check them versus the Dictionary.
+     * 
+     * @see Parser
+     * @see Dictionary
+     * @see Definition
+     * @see Token  
+     * 
+     * @return tokens return the tokens or words back to the parser.
+     * @throws IOException  
+     */
     public ArrayList<Token> scan() throws IOException {
         /*
          * @TODO allow possessives to be a part of the input
