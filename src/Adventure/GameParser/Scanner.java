@@ -6,7 +6,7 @@ package Adventure.GameParser;
 
 import java.io.*;
 import java.util.*;
-import static Adventure.GameParser.Word.PartsOfSpeech.*;
+import static Adventure.GameParser.Word.TokenType.*;
 /** The Scanner class translates the character input stream, 'in' into 'Tokens'.
  * The Scanner also handles binding phrases together for multi-word verbs and nouns.
  *
@@ -41,8 +41,10 @@ public class Scanner {
     
     public ArrayList<Token> scan() throws IOException {
         /*
+         * @TODO add adjectives to input, right now adjectives are not processed
          * @TODO allow possessives to be a part of the input
-         * @TODO multi-word recognition, e.g., "pick up", "put down", should be greedy - FIX
+         * @TODO allow the scanner to separate and recognize punctuation
+         * @TODO allow the scanner to recognize quotes and combine into strings
          */
         Dictionary dict = Dictionary.INSTANCE;
         ArrayList<String> words;
@@ -65,7 +67,7 @@ public class Scanner {
                     tok = new Token(words.get(i), def.word().get(), def.word().type());
                 if (def.phrases() != null) {
                     // match a phrase on the buffer - GREEDY (which is good), BRUTISH and WASTEFUL!
-                    // @TODO Clean this terrible thing up!  maybe redesign is necessary
+                    // @TODO Redesign multi-word search algorithm.  Works but very unelegant.
                     int n = 0; // number of words in longest match
                     String match = def.word().get(); // default to entry but grab longest matching phrase
                     StringBuffer phrase = new StringBuffer(words.get(i));

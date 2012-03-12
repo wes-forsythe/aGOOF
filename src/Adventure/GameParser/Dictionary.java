@@ -5,7 +5,7 @@
 package Adventure.GameParser;
 
 import java.util.*;
-import static Adventure.GameParser.Word.PartsOfSpeech.*;
+import static Adventure.GameParser.Word.TokenType.*;
 /**
  *
  * @author Jeff Jenness, kevinratton

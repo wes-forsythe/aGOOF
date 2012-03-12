@@ -4,7 +4,7 @@
  */
 package Adventure.GameParser;
 
-import static Adventure.GameParser.Word.PartsOfSpeech.*;
+import static Adventure.GameParser.Word.TokenType.*;
 /**
  *
  * @author jeffj, kevinratton

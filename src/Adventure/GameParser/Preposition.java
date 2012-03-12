@@ -4,7 +4,7 @@
  */
 package Adventure.GameParser;
 
-import static Adventure.GameParser.Word.PartsOfSpeech.*;
+import static Adventure.GameParser.Word.TokenType.*;
 /**
  * Preposition is a subclass of Word that deals with prepositions
  * when it comes to the parser

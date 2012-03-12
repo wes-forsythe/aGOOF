@@ -25,12 +25,12 @@ public class Word {
      * being given the name UNKNOWN.
      */
     
-    public static enum PartsOfSpeech {
-        UNKNOWN, PARTIAL, NOUN, ARTICLE, ADJECTIVE, VERB, PREPOSITION, INTERJECTION
+    public static enum TokenType {
+        UNKNOWN, PARTIAL, PUNCTUATION, NOUN, ARTICLE, ADJECTIVE, VERB, PREPOSITION, INTERJECTION
     }
 
     private String entry;
-    private PartsOfSpeech type;
+    private TokenType type;
     private String word;
     
     /**
@@ -38,11 +38,11 @@ public class Word {
      * created values within this class.
      * 
      * @param word String containing the word passed from a subclass
-     * @param type Contains one of the names from the PartsOfSpeech
+     * @param type Contains one of the names from the TokenType
      * enum created above
      */
     
-    public Word(String word, PartsOfSpeech type) {
+    public Word(String word, TokenType type) {
         this.entry = word.toLowerCase();
         this.type = type;
         this.word = word;
@@ -63,10 +63,10 @@ public class Word {
     /**
      * Allows the type for a given word to be accessed by other objects.
      * 
-     * @return type name from PartsOfSpeech for a particular word
+     * @return type name from TokenType for a particular word
      */
     
-    public PartsOfSpeech type() {
+    public TokenType type() {
         return this.type;
     }
     

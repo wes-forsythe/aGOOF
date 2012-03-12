@@ -13,9 +13,15 @@ public class Action {
     private String action;
     private String dobject;
     private String iobject;
+    private String errorMsg;
     
     public Action() {
-        
+        subject = action = dobject = iobject = "";
+        errorMsg = null;
+    }
+    
+    public void setError(String error) {
+        this.errorMsg = error;
     }
     
     public String Subject() {
@@ -52,6 +58,10 @@ public class Action {
     
     @Override
     public String toString() {
-        return "ACTION(SUB("+subject+"),ACT("+action+"),dOBJ("+dobject+"),iOBJ("+iobject+"))";
+        String action = errorMsg;
+        if (this.errorMsg == null)
+            action = "ACTION(SUB("+this.subject+"),ACT("+this.action+
+                    "),dOBJ("+this.dobject+"),iOBJ("+this.iobject+"))";
+        return action;
     }
 }

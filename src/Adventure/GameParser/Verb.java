@@ -4,7 +4,7 @@
  */
 package Adventure.GameParser;
 
-import static Adventure.GameParser.Word.PartsOfSpeech.*;
+import static Adventure.GameParser.Word.TokenType.*;
 /**
  * Verb is a subclass of Word that deals with verbs that are contained
  * in the dictionary and that are used in the parser

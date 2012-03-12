@@ -37,3 +37,23 @@ A SIMPLE GRAMMAR
 	verb directions: N (NORTH), S (SOUTH), E, W, NE, SE, SW, NW, U (UP), D (DOWN), IN, OUT
 			(short for: GO <direction>)
 	preposition = "TO" | "WITH"
+
+ABSTRACT GRAMMAR
+        Action          = Subject Predicate
+        Subject         = NounPhrase
+        Predicate       = VerbPhrase DirectObject indirectObject
+        IndirectObject  = NounPhrase
+        DirectObject    = NounPhrase | Indefinite
+        NounPhrase      = Noun Adjectives
+        Adjectives      = { Adjective }
+        VerbPhrase      = Verb Adverb
+
+EXAMPLES
+        get the bottle          Action = ((player ()) ((take) (bottle () ()))
+        open the gold chest     Action = ((player ()) ((open) (box (gold) ()))
+        look                    Action = ((master ()) ((look) () ()))
+        s                       Action = ((master ()) ((move south) (player ()) ()))
+        kill troll with knife   Action = ((player ()) ((kill) (troll ()) (knife ()))
+        give black book to Adam Action = ((player ()) ((give) (Adam ()) (book (black)))
+
+ 
