@@ -15,8 +15,8 @@ public class Room extends Location {
      * 
      * @param name
      */
-    public Room(String name) {
-        super(name);
+    public Room(String name, String description) {
+        super(name,description);
     }
     /**
      * access method to protected string variable name
