@@ -15,8 +15,8 @@ public class Space extends Location {
      * 
      * @param name
      */
-    public Space(String name) {
-        super(name);
+    public Space(String name, String description) {
+        super(name,description);
     }
     /**
      * access method to protected string variable name
