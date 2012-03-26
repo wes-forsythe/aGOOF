@@ -26,8 +26,8 @@ public class Scenes {
      * First, determine whether the new location is to be an outside space, 
      * or a room. Then declare new Space or Room based on specification.
      */
-    public static Location Outside = new Space("Outside");
-    public static Location Cave = new Room("Cave");
+    public static Location Outside = new Space("Outside","Beautiful green medow.");
+    public static Location Cave = new Room("Cave","Dark and spooky.");
     /**
     * @see Adventure.Locations.Space
     * @see Adventure.Locations.Room

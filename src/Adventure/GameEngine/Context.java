@@ -7,7 +7,11 @@ package Adventure.GameEngine;
 /**
  *
  * @author jeffj
+ * @author dereke
+ * @version ?
  */
+
+/** Class Description of Context */
 public class Context {
     
 }

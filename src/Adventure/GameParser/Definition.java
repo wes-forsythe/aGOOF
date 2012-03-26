@@ -32,9 +32,17 @@ public class Definition {
         return this.word;
     }
     
+    public void resetWord(Word word) {
+        this.word = word;
+    }
+    
     public void addPhrase(String ... compounds) {
         if (phrases == null) phrases = new ArrayList<String>();
         phrases.addAll(Arrays.asList(compounds));
+    }
+    
+    public ArrayList<String> phrases() {
+        return phrases;
     }
     
     @Override

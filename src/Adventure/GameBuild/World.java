@@ -30,8 +30,8 @@ public class World {
     public static final String name      = "ADVENTURE";
     public static final String title     = name+": Coping with Classes and Patterns";
     public static final String copyright = "Copyright (c) 2012. All rights reserved.";
-    public static final String version   = "0.1α";
-    public static final String release   = "20120201";
+    public static final String version   = "0.3α";
+    public static final String release   = "20120306";
     public static final String IFID      = "49644288-6D81-41C8-A4B6-1EEAECC74C51";
     
     public static final Master master = Master.INSTANCE;

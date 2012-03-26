@@ -120,10 +120,10 @@ public enum Engine implements Clock {
         out.printf("Welcome to %s, %s!\n\n", world.name, world.adventurer.name());
         out.printf("Type \"help\" to get instructions.\n");
         do {
-            action = parser.parse();    // get and parse user input
-                                        // distrubute action and execute
-            tick();                     // increment clock... tell other parts to update  
-                                        // generate view
+            action = parser.parse();        // get and parse user input
+                                            // distrubute action and execute
+            tick();                         // increment clock ... signal step 
+            // World.view(Player.location());  // generate view
         } while (!action.Action().equals("quit"));
     }
 }
