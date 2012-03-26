@@ -4,6 +4,8 @@
  */
 package Adventure.Container;
 
+import Adventure.GameObject.Container;
+
 /**
  * @author Julie Kirby
  * @author Wes Forsythe
